@@ -23,3 +23,27 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class DemoHome extends StatelessWidget {
+  const DemoHome({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          _buildRouteButton(context, "드롭다운 테스트", HomeWithDropDown()),
+        ],
+      )
+    );
+  }
+
+  Widget _buildRouteButton(BuildContext context, String title, Widget widget) {
+    return TextButton(
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => widget));
+        },
+        child: Text(title))
+    ;
+  }
+}
